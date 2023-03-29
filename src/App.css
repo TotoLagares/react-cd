@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.h1Greed{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 5em;
+  color: #838282;
+  text-align: center;
+  text-shadow: 2px 2px 4px #000000;
+
+
+}
