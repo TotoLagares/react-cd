@@ -18,19 +18,18 @@ function App() {
               <a className="my-0" href="/">
                   <img src={logo} alt="Mi imagen" className="w-25 imglogo my-0" />
               </a>
-        < Navbare />
-                 
+              
+            < Navbare /> 
           </div>
         </header>
-      </BrowserRouter>
-
-      <div className="container">
-          <Routes>
+        <Routes>
             <Route path='/' element={<ItemListContainer/>} />
               <Route path='/' element={<ItemListContainer/>} />
-              <Route path='/' element={<ItemListContainer/>} />
+              <Route path='/' element={<ItemDetailContainer/>} />
               <Route path='*' element={<h3>Error 404</h3>} />
           </Routes>
+      </BrowserRouter>  
+      <div className="container">
         <ItemListConainer greeting={"Hola mundo"}/>
         <ItemDetailContainer />
       </div>
