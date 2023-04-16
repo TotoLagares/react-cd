@@ -1,7 +1,7 @@
-import Carrito from "./items/carrito"
+import Carrito from "../carrito"
 const Navbare = () => {
     return(
-        <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+        <nav className="navbar navbar-expand-lg navbar-light ">
         <div className="container-fluid ">
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@ const Navbare = () => {
                         <a className="nav-link" href="/"><button type="button" class="btn btn-outline-info">Info</button></a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link bg-danger bg-opacity-75 text-white" href="/">< Carrito /></a>
+                        <a className="nav-link text-danger" href="/">< Carrito /></a>
                     </li>
                 </ul>
             </div>
