@@ -1,4 +1,5 @@
 import Carrito from "../carrito"
+import { NavLink } from "react-router-dom"
 const Navbare = () => {
     return(
         <nav className="navbar navbar-expand-lg navbar-light ">
@@ -9,7 +10,7 @@ const Navbare = () => {
             <div className="collapse navbar-collapse justify-content-end" id="navbarNav" >
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link active" aria-current="page" href="/"><button type="button" class="btn btn-outline-info">Info</button></a>
+                       <NavLink to={'/categoria/ComponentesdePC'} className={({isActive})=>isActive ?'ActiveOption':'option'}></NavLink>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/"><button type="button" class="btn btn-outline-info">Info</button></a>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ItemDetail from "../items/ItemDetail";
-import { getProductosById } from "../../helpers/getProductosById";
+import ItemDetail from "../ItemDetail/itemDetail";
+import { getProductosById } from "../items/itemsMock";
 
 const ItemDetailContainer = () => {
   const [productos, setProductos] = useState(null);
@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div className="ItemDetailContainer">
-      {productos && <ItemDetail {...productos} />}
+      <ItemDetail {...productos} />
     </div>
   );
 };
