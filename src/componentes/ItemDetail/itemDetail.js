@@ -1,6 +1,7 @@
 import React from "react";
 import IteamCount from "../items/IteamCount";
 import './itemDetail.css'
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({id, nombre, precio, stock, img, categoria, descripcion}) => {
     return(
@@ -15,9 +16,10 @@ const ItemDetail = ({id, nombre, precio, stock, img, categoria, descripcion}) =>
                     <h5 className=''> $ {precio}</h5>
                     <h5 className='text-muted fs-5'>Stock {stock}</h5>
                 </div>
-                <p className='text-center mt-3 fs-6'>{descripcion}</p>
+                
             </figcaption>
             <footer className='d-flex justify-content-center'>
+                <Link to={"/item/${id}"} className="Option">Ver detalles</Link>
                 <IteamCount initial={1} stock={stock} onAdd={(Cantidad) => console.log(Cantidad)}/>
             </footer>
       </figure> 
