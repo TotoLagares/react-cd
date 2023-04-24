@@ -6,7 +6,7 @@ const productos = [
     { id: Math.random(), img: 'https://imgs.search.brave.com/Wh-pYrfW5QnwlKkIaqo4JOvVXNBW4NxAXoPNTLk9Fks/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5z/RkVtNEt3empuLXZs/M3liSXFnSnl3SGFI/YSZwaWQ9QXBp', nombre: 'Refrigerador líquido Corsair H100i RGB Platinum', categoria: 'ComponentesdePC', precio: 159.99, stock: Math.floor(Math.random() * 15) + 1, descripcion: 'Radiador de 240 mm, dos ventiladores ML120 RGB' },
     { id: Math.random(), img: 'https://imgs.search.brave.com/g-D7yQ8WLrDpBHvIwo9M_4P6eKChCFiFkHoJwTBSv0c/rs:fit:764:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5H/VU1CNUxlZi1wS2lJ/UFBVc0xtY0FnSGFF/bSZwaWQ9QXBp', nombre: 'Fuente de poder EVGA SuperNOVA 750 G5', categoria: 'ComponentesdePC', precio: 119.99, stock: Math.floor(Math.random() * 15) + 1, descripcion: '750 W, certificación 80 PLUS Gold' },
     { id: Math.random(), img: 'https://imgs.search.brave.com/RYVS-WwAwYGhYB11MRzW1rZouAnVySQ9uqgPVuEIshY/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5Y/d3ZqQmZrVF9ubnNF/TFFoWUtGLTFRSGFI/YSZwaWQ9QXBp', nombre: 'Gabinete NZXT H510', categoria: 'ComponentesdePC', precio: 69.99, stock: Math.floor(Math.random() * 15) + 1, descripcion: 'ATX, vidrio templado, dos ventiladores incluidos' },
-    { id: Math.random(), img: 'https://imgs.search.brave.com/ANtHrg-IetBWVFJFkTsbZ1YjycazaC0m4Uf-wnerAqQ/rs:fit:541:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5T/dERncElhMmk3ZXRn/U1pSaE1nZ29BSGFH/ZiZwaWQ9QXBp', nombre: 'Tarjeta madre ASUS ROG Strix B550-F Gaming', categoria: 'Componentes de PC', precio: 179.99, stock: Math.floor(Math.random() * 15) + 1, descripcion: 'Soporta procesadores AMD Ryzen, PCIe 4.0' },
+    { id: Math.random(), img: 'https://imgs.search.brave.com/ANtHrg-IetBWVFJFkTsbZ1YjycazaC0m4Uf-wnerAqQ/rs:fit:541:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5T/dERncElhMmk3ZXRn/U1pSaE1nZ29BSGFH/ZiZwaWQ9QXBp', nombre: 'Tarjeta madre ASUS ROG Strix B550-F Gaming', categoria: 'ComponentesdePC', precio: 179.99, stock: Math.floor(Math.random() * 15) + 1, descripcion: 'Soporta procesadores AMD Ryzen, PCIe 4.0' },
     { id: Math.random(), img: 'https://imgs.search.brave.com/mMKUit2Ol9ELRO4iXOsihGkOMQSC8LHym3MQ-LaafzY/rs:fit:474:225:1/g:ce/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5J/NXk4RlBNYXRNaVY4/ZDVuMVhTdnVnSGFI/YSZwaWQ9QXBp', nombre: 'Teclado mecánico Logitech G915', categoria: 'PerifericosdePC', precio: 249.99, stock: Math.floor(Math.random() * 15) + 1, descripcion: 'Inalámbrico, con cable, RGB, teclas mecánicas' },
 
 ]
@@ -15,13 +15,20 @@ export const getProductos = () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(productos)
-        }, 2000)
+        }, 200)
     })
 }
 export const getProductosById = (id) => {
     return new Promise((resolve) => {
         setTimeout(() => {
             resolve(productos.find((producto) => producto.id === id))
-        }, 2000)
+        }, 200)
+    })
+}
+export const getProductosByCategoria = (categoria) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(productos.filter((producto) => producto.categoria === categoria))
+        }, 200)
     })
 }

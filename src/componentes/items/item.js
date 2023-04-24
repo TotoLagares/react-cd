@@ -1,4 +1,5 @@
- import './items.css'
+ import { Link } from 'react-router-dom'
+import './items.css'
  const Item = ({id, nombre, precio, stock, img, categoria, descripcion}) => {
     return(
         <figure class="snip1268 bg-secondary">
@@ -12,7 +13,7 @@
                     <h5 className=''> $ {precio}</h5>
                     <h5 className='text-muted fs-5'>Stock {stock}</h5>
                 </div>
-                <p className='text-center mt-3 fs-6'>{descripcion}</p>
+                <p className='text-center mt-3 fs-6'><Link to={`/item/${id}`}>Ver detalles</Link></p>
             </figcaption>
       </figure> 
 
