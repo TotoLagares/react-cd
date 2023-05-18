@@ -3,6 +3,7 @@ import ItemDetail from "../ItemDetail/itemDetail";
 import { getProductosById } from "../items/itemsMock";
 import { useParams } from "react-router-dom";
 
+
 const ItemDetailContainer = () => {
   const [productos, setProductos] = useState(null);
   const {itemId}= useParams();
