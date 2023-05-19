@@ -5,6 +5,8 @@ import logo from './componentes/assets/owl store-logos_transparent.png';
 import ItemListConainer from './componentes/ItemContainer/itemListContainer';
 import ItemDetailContainer from './componentes/ItemDetailContainer/itemDetailContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Carrito from './componentes/header/carrito';
+import { CarProvider } from './context/carContext';
 
 
 
@@ -13,6 +15,7 @@ function App() {
   return (
     <div className="App bg-dark">
       <BrowserRouter>
+      <CarProvider>
         <header className="bg-dark">
             <div className="container d-flex border">
               <a className="my-0" href="/">
@@ -27,7 +30,9 @@ function App() {
               <Route exact path='./categoria/categoriaId' element ={<ItemDetailContainer/>} />
               <Route path='/item/:itemId' element={<ItemDetailContainer/>} />
               <Route path='*' element={<h3>Error 404</h3>} />
+              <Route path='/cart' element={<Carrito/>} />
           </Routes>
+      </CarProvider>
       </BrowserRouter> 
     </div>
   );

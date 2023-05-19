@@ -3,12 +3,21 @@ import IteamCount from "../items/IteamCount";
 import './itemDetail.css'
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { CarContext } from "../../context/carContext";
+import { useContext } from "react";
 
 
 const ItemDetail = ({id, nombre, precio, stock, img, categoria, descripcion}) => {
     const [QuantityAdded, setQuantityAdded] = useState(0);
+
+    const {addItem} = useContext(CarContext)
+
     const handleonAdd = (quantity) => {
-        setQuantityAdded(quantity);
+        setQuantityAdded(quantity)
+        const item = {
+            id, nombre, precio, stock, img, categoria, descripcion, quantity
+         }
+         addItem(item, quantity)
     }
     return(
         <figure class=" bg-secondary">
@@ -25,12 +34,12 @@ const ItemDetail = ({id, nombre, precio, stock, img, categoria, descripcion}) =>
             </figcaption>
             <footer className='d-flex justify-content-center'>
                 {
-                    QuantityAdded > 0 ?
-                    <Link to='/cart'><button type="button" className="btn btn-success m-3">Terminar mi compra</button></Link>
-                    :
-                    <IteamCount initial={0} stock={stock} onAdd={(Cantidad) => console.log(Cantidad)}/>
+                    QuantityAdded > 0 ?(
+                        <Link to='/cart' className="Option">Terminar mi compra</Link>
+                    ):(
+                        <IteamCount initial={1} stock={stock} onAdd={(handleonAdd)}/>
+                    )
                 }
-
             </footer>
       </figure> 
 
