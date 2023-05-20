@@ -1,5 +1,6 @@
-import Carrito from "../carrito"
+
 import { NavLink } from "react-router-dom"
+import CartWidget from "../../CartWidget/cartWidget";
 
 
     const Navbare = () => {;
@@ -20,9 +21,13 @@ import { NavLink } from "react-router-dom"
                     <li className="nav-item">
                         <button type="button" class="btn btn-outline-info"><NavLink to={`/categoria/ComponentesdePC`}className={({isActive})=>isActive ?'ActiveOption':'option'}><h4 className="fs-6">Componentes de PC</h4></NavLink></button>
                     </li>
-                    <li className="nav-item">
-                        <a className="nav-link text-danger" href="/">< Carrito /></a>
-                    </li>
+                    <li className='nav-item'>
+                            <NavLink to='/cart'>
+                                <h1 className='nav-link text-danger'>
+                                    <i className="fas fa-shopping-cart"></i>{<CartWidget/>}
+                                </h1>
+                            </NavLink>
+                        </li>
                 </ul>
             </div>
         </div>
