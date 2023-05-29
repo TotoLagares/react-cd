@@ -1,25 +1,46 @@
-import React, { useState, useEffect } from "react";
-import ItemDetail from "../ItemDetail/itemDetail";
-import { getProductosById } from "../items/itemsMock";
+
+import { useState, useEffect } from "react";
+import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore";
+import db from "../../config/firebase/firebaseConfig";
+import {PulseLoader} from "react-spinners";
+
 
 
 const ItemDetailContainer = () => {
   const [productos, setProductos] = useState(null);
-  const {itemId}= useParams();
+  const [loading, setLoading] = useState(true);
+
+  const { itemId } = useParams();
+
   useEffect(() => {
-    getProductosById(itemId)
-      .then((response) => {
-        setProductos(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      setLoading(true);
+
+      const docRef = doc(db, 'productos', itemId);
+
+      getDoc(docRef)
+          .then(response => {
+              const data = response.data();
+              const productAdapted = { id: response.id, ...data };
+              setProductos(productAdapted);
+          })
+          .catch(error => {
+              console.error(error);
+          })
+          .finally(() => {
+              setLoading(false);
+          });
+
   }, [itemId]);
 
   return (
     <div className="ItemDetailContainer">
-      <ItemDetail {...productos} />
+            {loading ? (
+                <PulseLoader color="red" loading={loading} size={15} />
+            ) : (
+                <ItemDetail {...productos} />
+            )}
     </div>
   );
 };
