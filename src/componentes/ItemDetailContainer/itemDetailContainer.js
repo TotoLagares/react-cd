@@ -1,9 +1,9 @@
 
 import { useState, useEffect } from "react";
-import ItemDetail from "../ItemDetail/ItemDetail";
+import ItemDetail from "../ItemDetail/itemDetail";
 import { useParams } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
-import db from "../../config/firebase/firebaseConfig";
+import db from "../../config/firebase";
 import {PulseLoader} from "react-spinners";
 
 
