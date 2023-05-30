@@ -28,7 +28,7 @@ const ItemDetail = ({id, nombre, precio, stock, img, categoria, descripcion}) =>
                 <h2 className='text-center fs-6 m-3'>{nombre}</h2>
                 <div className='d-flex justify-content-around'>
                     <h5 className=''> $ {precio}</h5>
-                    <h5 className='text-muted fs-5'>Stock {stock}</h5>
+                    <h5 className='text-danger fs-5'>Stock {stock}</h5>
                 </div>
                 
             </figcaption>
