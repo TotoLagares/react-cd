@@ -33,6 +33,7 @@ const ItemListContainer = ({ greeting }) => {
               setLoading(false)
           })
   }, [categoryId])
+  console.log(productos)
 
 return (
          <div>
@@ -42,13 +43,4 @@ return (
          </div>)
 }
 
-
-      
-
 export default ItemListContainer       
-// return (
-//         <div>
-//             {loading && <h2>Cargando...</h2>}
-//             <h1>{greeting}</h1>
-//             <ItemList productos={productos} />
-//         </div>)
