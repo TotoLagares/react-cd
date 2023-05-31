@@ -10,7 +10,7 @@ const Checkout = () => {
     const [ loading, setLoading ] = useState(false);
     const [ orderId, setOrderId ] = useState('');
 
-    const { cart, cartTotal, clearCart } = useContext( CarContext );
+    const { cart, totalItems, clearCart } = useContext( CarContext );
 
     const createOrder = async ({ name, phone, email }) => {
         setLoading(true);
@@ -21,7 +21,7 @@ const Checkout = () => {
                     name, phone, email
                 },
                 items: cart,
-                total: cartTotal(),
+                total: totalItems(),
                 date: Timestamp.fromDate(new Date())
             }
 
@@ -31,7 +31,7 @@ const Checkout = () => {
 
             const ids = cart.map(prod => prod.id);
 
-            const productsRef = collection(db, 'products');
+            const productsRef = collection(db, 'productos');
 
             const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)));
 
@@ -42,7 +42,7 @@ const Checkout = () => {
                 const stockDb = dataDoc.stock;
 
                 const productAddedToCart = cart.find(prod => prod.id === doc.id);
-                const prodQuantity = productAddedToCart?.quantity;
+                const prodQuantity = productAddedToCart?.cantidad || productAddedToCart.quantity;
 
                 if(stockDb >= prodQuantity){
                     batch.update(doc.ref, { stock: stockDb - prodQuantity });

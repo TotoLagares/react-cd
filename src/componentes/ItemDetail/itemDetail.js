@@ -15,8 +15,14 @@ const ItemDetail = ({id, nombre, precio, stock, img, categoria, descripcion}) =>
     const handleonAdd = (quantity) => {
         setQuantityAdded(quantity)
         const item = {
-            id, nombre, precio, stock, img, categoria, descripcion, quantity
-         }
+            id,
+            nombre,
+            precio,
+            stock,
+            img,
+            categoria,
+            descripcion,
+          };
          addItem(item, quantity)
     }
     return(
